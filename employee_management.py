@@ -2,17 +2,17 @@ import json
 
 # Employee class
 class Employee:
-    def __init__(self, name, emp_id, title, department):
+    def __init__(self, name, employee_id, title, department):
         self.name = name
-        self.emp_id = emp_id
+        self.employee_id = employee_id
         self.title = title
         self.department = department
     
     def display_details(self):
-        print(f"Employee Name: {self.name}, Employee ID: {self.emp_id}, Title: {self.title}, Department: {self.department}")
+        print(f"Employee Name: {self.name}, Employee ID: {self.employee_id}, Title: {self.title}, Department: {self.department}")
     
     def __str__(self):
-        return f"Name: {self.name}, ID: {self.emp_id}"
+        return f"Name: {self.name}, ID: {self.employee_id}"
 
 # Department class
 class Department:
@@ -23,14 +23,14 @@ class Department:
     def add_employee(self, employee):
         self.employees.append(employee)
     
-    def remove_employee(self, emp_id):
+    def remove_employee(self, employee_id):
         for employee in self.employees:
-            if employee.emp_id == emp_id:
+            if employee.employee_id == employee_id:
                 self.employees.remove(employee)
                 return
         print("Employee not found in this department.")
     
-    def list_employees(self):
+    def employees_list(self):
         for employee in self.employees:
             print(employee)
 
@@ -53,16 +53,16 @@ class Company:
         else:
             print(f"Department '{department_name}' does not exist.")
     
-    def display_departments(self):
+    def show_departments(self):
         print("Departments:")
         for department_name in self.departments:
             print(department_name)
     
-    def display_department_details(self, department_name):
+    def show_department_details(self, department_name):
         if department_name in self.departments:
             department = self.departments[department_name]
             print(f"Department: {department_name}")
-            department.list_employees()
+            department.employees_list()
         else:
             print(f"Department '{department_name}' does not exist.")
     
@@ -114,17 +114,17 @@ def main():
             department_name = input("Enter department name: ")
             company.remove_department(department_name)
         elif choice == '3':
-            company.display_departments()
+            company.show_departments_departments()
         elif choice == '4':
             department_name = input("Enter department name: ")
-            company.display_department_details(department_name)
+            company.show_department_details(department_name)
         elif choice == '5':
             department_name = input("Enter department name: ")
             if department_name in company.departments:
                 name = input("Enter employee name: ")
-                emp_id = input("Enter employee ID: ")
+                employee_id = input("Enter employee ID: ")
                 title = input("Enter employee title: ")
-                employee = Employee(name, emp_id, title, department_name)
+                employee = Employee(name, employee_id, title, department_name)
                 company.departments[department_name].add_employee(employee)
                 print("Employee added successfully.")
             else:
@@ -132,8 +132,8 @@ def main():
         elif choice == '6':
             department_name = input("Enter department name: ")
             if department_name in company.departments:
-                emp_id = input("Enter employee ID: ")
-                company.departments[department_name].remove_employee(emp_id)
+                employee_id = input("Enter employee ID: ")
+                company.departments[department_name].remove_employee(employee_id)
             else:
                 print(f"Department '{department_name}' does not exist.")
         elif choice == '7':
