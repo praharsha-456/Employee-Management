@@ -1,0 +1,1 @@
+{"departments": {"HR": [{"name": "Harsha", "emp_id": "35953", "title": "HR Manager", "department": "HR"}], "Operations": [{"name": "Praharsha", "emp_id": "70930", "title": "Software Developer", "department": "Operations"}], "DevOps": [{"name": "Nitish", "emp_id": "68909", "title": "DevOps Engineer", "department": "DevOps"}]}}
